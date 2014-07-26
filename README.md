@@ -7,6 +7,7 @@ Aquamarine iOS Model Framework
 
 Built on
 
+- Realm (or database agnostic)
 - Mantle
 - (AQResourceMapper)
 - AFNetworking
