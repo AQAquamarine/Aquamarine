@@ -26,6 +26,7 @@ Features
 
 Breaking down...
 
+- Effortless data storing / querying.
 - Model serialization / deserialization from JSON, plist or msgpack.
 - Transparently handling of resource through network like ActiveResource.
 - Model <=> Backend sychronization and comprehensive protocols.
