@@ -7,23 +7,22 @@ Aquamarine iOS Model Framework
 
 Built on
 
-- Realm (or database agnostic)
-- Mantle
-- (AQResourceMapper)
-- AFNetworking
-- (AQSyncManager)
-- KXCollection or its fork
+- AquaModel (inherits Mantle) - an improved model class. non nil parameters / better view-model binding support / observable.
+- AquaRequest (based on AFNetworking) - a request manager focused on convinience of handling APIs. (re-send, caching, offline support, spinners...)
+- [Aquasync](https://github.com/AQAquamarine/Aquasync) - an effortless data synchronization framework.
+- AquaCollection (inherits KXCollection) - a collection focused on convinience of handling models. (re-order, filtering, observation...)
 
 and works well with
 
 - ReactiveCocoa
+- Realm
 
 Features
 ---
 
 - **Effortless API handling**
 - **Effortless Synchronization**
-- **Effortless View binding**
+- **Effortless View-Model binding**
 
 Breaking down...
 
