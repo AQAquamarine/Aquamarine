@@ -1,7 +1,7 @@
+![](https://dl.dropboxusercontent.com/u/7817937/_github/aquamarine/aquamarine_logo.png)
+
 Aquamarine
 ==========
-
-![](https://dl.dropboxusercontent.com/u/7817937/_github/aquamarine/aquamarine_image.jpg)
 
 Aquamarine iOS Model Framework
 
