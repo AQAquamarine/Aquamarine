@@ -38,6 +38,12 @@ Status
 
 Perfectly WIP.
 
+Related Projects
+---
+
+- [Proton](https://github.com/bitswift/Proton) - Model framework for Cocoa and Cocoa Touch applications
+- [Mantle](https://github.com/Mantle/Mantle) - Model framework for Cocoa and Cocoa Touch
+
 LICENSE
 ---
 
