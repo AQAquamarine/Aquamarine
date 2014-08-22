@@ -7,15 +7,14 @@ Aquamarine iOS Model Framework
 
 Built on
 
-- AquaModel (inherits Mantle) - an improved model class. non nil parameters / better view-model binding support / observable.
-- AquaRequest (based on AFNetworking) - a request manager focused on convinience of handling APIs. (re-send, caching, offline support, spinners...)
-- [Aquasync](https://github.com/AQAquamarine/Aquasync) - an effortless data synchronization framework.
-- AquaCollection (inherits KXCollection) - a collection focused on convinience of handling models. (re-order, filtering, observation...)
+- AquaModel (inherits Mantle) - An improved model class. Non nil parameters & Better view-model binding support & Observable.
+- [Aquasync](https://github.com/AQAquamarine/Aquasync) - An effortless data synchronization framework.
+- AquaCollection (inherits [oxen](https://github.com/jacksonh/oxen)) - A collection focused on convinience of handling models. (re-order, filtering, scope, serialization, observation...)
 
 and works well with
 
 - ReactiveCocoa
-- Realm
+- CoreData
 
 Features
 ---
@@ -32,6 +31,87 @@ Breaking down...
 - Model <=> Backend sychronization and comprehensive protocols.
 - Model collections which works well with TableView / CollectionView.
 - Model <=> View Binding mechanism or handling KVO transparently.
+
+Code Example
+---
+
+```objc
+Album *album = [Album createWithJSON:json];
+```
+
+```objc
+[Album get:13 completion:^{
+    ...
+} error:nil];
+```
+
+```objc
+AQMValidationResult *result = [album validate];
+```
+
+```objc
+[Album sync];
+```
+
+```objc
+[album bind:view];
+```
+
+```objc
+[albums bindCollectionView:collectionView]; // Will bind insertion, deletion, swapment, reloadData of collection into collectionView.
+```
+
+```objc
+[albums cellAt:indexPath]; // It will handle EVERYTHING behalf of you. Just call this on your CollectionView DataSource.
+```
+
+```objc
+[albums filter:@"location == 'Hawaii'"];
+```
+
+Declarative Style
+---
+
+```objc
+// Album.m
+
++ (NSDictionary *)validationRules {
+    return @{
+        @"title": @[[AQMValidator presence], [AQMValidator shorterThan:256]]
+    };
+}
+
++ (NSDictionary *)JSONKeyMap {
+    return @{
+        @"title": @"title",
+        @"createdAt": @"created_at",
+        @"updatedAt": @"updated_at"
+    };
+}
+
++ (NSArray *)beforeSave {
+    return @[@selector(doSomePreparationForSave)];
+}
+```
+
+And advanced options...
+
+```objc
+// @Optional
++ (NSString *)resourcePath {
+    return @"/albums"; 
+}
+
+// @Optional
++ (NSDictionary *)requestMap {
+    return @{
+        AquamarineRequestShow: @"GET /:id",
+        AquamarineRequestCreate: @"POST /",
+        AquamarineRequestUpdate: @"PATCH /:id",
+        AquamarineRequestDestroy: @"DELETE /:id"
+    };
+}
+```
 
 Status
 ---
