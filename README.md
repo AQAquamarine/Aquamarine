@@ -7,7 +7,7 @@ Aquamarine iOS Model Framework
 
 Built on
 
-- AquaModel (inherits Mantle) - An improved model class. Non nil parameters & Better view-model binding support & Observable.
+- AquaModel (inherits Mantle) - An improved model class. Non nil parameters & Better view-model binding support & Observable.　(`NSManagedObject+Serializable`, `NSManagedObject+Requestable`, `NSManagedObject+Validatable`, `NSManagedObject+Callbackable`)
 - [Aquasync](https://github.com/AQAquamarine/Aquasync) - An effortless data synchronization framework.
 - AquaCollection (inherits [oxen](https://github.com/jacksonh/oxen)) - A collection focused on convinience of handling models. (re-order, filtering, scope, serialization, observation...)
 
